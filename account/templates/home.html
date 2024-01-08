@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Home Page</title>
+</head>
+<body >
+    <h1 style="color: rgb(144, 111, 175);"> Welcome to the Homepage!</h1>
+    {% if user.is_authenticated %}
+        <p style="color: rgb(25, 105, 105);">Hello, {{ user.username }}!</p>
+        <a style="color: blue;" href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <p style="color: rgb(134, 48, 109);">Please Login, if you are already registered  </p>
+        <p style="color: rgb(159, 150, 67);">Click Register for New User</p>
+        <a style="color: blue;" href="{% url 'login' %}">Login</a> | <a style="color: blue;"href="{% url 'register' %}">Register</a>
+    {% endif %} 
+</body>
+</html>

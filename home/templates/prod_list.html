@@ -1,0 +1,36 @@
+<!--{% load static %}-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Sample E-commerce Site</title>
+    <link rel="stylesheet" href="{% static 'css\style.css' %}">   
+    
+</head>
+<body>
+    
+    
+
+        <h1> Welcome to Our E-commerce Site </h1>
+        <p> Explore our wide range of products and find exactly what you need.</p>
+
+        <p style="color: rgb(25, 105, 105);">Hello, {{ user.username }}!</p>
+        <a style="color: blue;" href="{% url 'logout' %}">Logout</a>
+        
+        {% for product in products %}
+        <li >
+             <!--<img src="{% static 'images/s23.jpg' product.id %}" alt="" style="width: 120px;height: 150px;">
+             <img src="{% static 'images/moto.jpg' product.id %}" alt="" style="width: 120px;height: 150px;"> -->
+            {{product.name }}  - ${{product.price}}
+            <a href="{% url 'add_to_cart' product.id %}">Add to cart</a>
+          
+        </li>
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.description }}</p>
+        <p>Price: ${{ product.price }}</p>
+        {% endfor %}
+        
+            
+
+</body>
+</html>
